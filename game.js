@@ -1,8 +1,8 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight - 100;
+canvas.width = 800;
+canvas.height = 400;
 
 const player = {
     x: 50,
@@ -71,10 +71,10 @@ function drawHPBars() {
     ctx.fillRect(ai.x, ai.y - 10, (ai.hp / ai.maxHp) * ai.width, 5);
 }
 
-// Update HP display in the HUD
+// Fungsi untuk memperbarui tampilan HP di HUD
 function updateHUD() {
     document.getElementById("playerHP").innerText = `Player HP: ${player.hp}`;
-    document.getElementById("aiHP").innerText = `AI HP: ${ai.hp}`;
+    document.getElementById("aiHP").innerText = `PEPE BYTE HP: ${ai.hp}`;
 }
 
 function checkCollisions() {
@@ -82,7 +82,7 @@ function checkCollisions() {
         if (bullet.x >= ai.x && bullet.y >= ai.y && bullet.y <= ai.y + ai.height) {
             ai.hp -= 50;
             bullets.splice(index, 1);
-            updateHUD(); // Update HP display after attack
+            updateHUD(); // Update tampilan HP setelah serangan
         }
     });
 
@@ -90,7 +90,7 @@ function checkCollisions() {
         if (bullet.x <= player.x + player.width && bullet.y >= player.y && bullet.y <= player.y + player.height) {
             player.hp -= 10;
             aiBullets.splice(index, 1);
-            updateHUD(); // Update HP display after being hit
+            updateHUD(); // Update tampilan HP setelah terkena serangan
         }
     });
 
@@ -124,7 +124,7 @@ function resetGame() {
     ai.hp = ai.maxHp;
     gameOver = false;
     document.body.removeChild(document.querySelector("button"));
-    updateHUD(); // Update HP display on game reset
+    updateHUD(); // Perbarui HP di layar saat reset game
     gameLoop();
 }
 
@@ -147,36 +147,6 @@ document.addEventListener("keydown", (event) => {
     if (event.key === " ") bullets.push({ x: player.x + player.width, y: player.y + player.height / 2 });
 });
 
-// Handle touch events for mobile
-let touchStartY = null;
-
-document.addEventListener("touchstart", (event) => {
-    touchStartY = event.touches[0].clientY;
-});
-
-document.addEventListener("touchmove", (event) => {
-    if (touchStartY !== null) {
-        const touchMoveY = event.touches[0].clientY;
-        if (touchMoveY < touchStartY && player.y > 0) {
-            player.y -= player.speed;
-        } else if (touchMoveY > touchStartY && player.y < canvas.height - player.height) {
-            player.y += player.speed;
-        }
-        touchStartY = touchMoveY;
-    }
-});
-
-document.addEventListener("touchend", () => {
-    touchStartY = null;
-});
-
-// Handle tap for shooting
-canvas.addEventListener("touchend", () => {
-    if (!gameOver) {
-        bullets.push({ x: player.x + player.width, y: player.y + player.height / 2 });
-    }
-});
-
-// Call updateHUD to ensure HP is updated when the game starts
+// Panggil updateHUD untuk memastikan tampilan HP diupdate saat game dimulai
 updateHUD();
 gameLoop();

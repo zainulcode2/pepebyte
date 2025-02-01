@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pepe vs AI Monster</title>
+    <title>PEPE BYTE NEVER DIE</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="music/background-music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Button to enable music -->
+    <button id="musicOn">Music On</button>
+
     <!-- Game Introduction Text -->
     <div class="intro-text">
         <h1>Can you defeat Pepe Byte?</h1>
@@ -24,9 +33,18 @@
     <!-- How to Play Section -->
     <div class="instructions">
         <h2>How to Play</h2>
-        <p>Press the <strong>Spacebar</strong> to shoot bullets or tap the screen on mobile.</p>
-        <p>Use the <strong>Arrow Up</strong> and <strong>Arrow Down</strong> keys to move and avoid enemy attacks. Swipe up or down to move on mobile.</p>
+        <p>Press the <strong>Spacebar</strong> to shoot bullets.</p>
+        <p>Use the <strong>Arrow Up</strong> and <strong>Arrow Down</strong> keys to move and avoid enemy attacks.</p>
     </div>
+
+    <script>
+        document.getElementById("musicOn").addEventListener("click", function() {
+            let bgMusic = document.getElementById("bgMusic");
+            if (bgMusic.paused) {
+                bgMusic.play().catch(error => console.log("Autoplay blocked:", error));
+            }
+        });
+    </script>
 
     <script src="game.js"></script>
 </body>

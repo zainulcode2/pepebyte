@@ -1,80 +1,182 @@
+/* General body styling */
 body {
     text-align: center;
     background-image: url('bg.jpg');
     background-size: cover;
     background-position: center;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    color: #ffffff;
 }
 
+/* Intro text styles */
 .intro-text {
-    margin-top: 50px;
+    margin-top: 0; /* Reduced space above text even more */
     color: white;
-    font-size: 24px;
+    font-size: 28px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
 }
 
+/* Adjust space between h1 and h2 */
 .intro-text h1 {
-    font-size: 36px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8);
+    margin-bottom: 5px; /* Reduced space between h1 and h2 further */
 }
 
 .intro-text h2 {
-    font-size: 28px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    font-size: 32px;
+    font-weight: 500;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    margin-top: 0; /* Removed margin-top to reduce space */
 }
 
+/* Instructions section with a stylish scrollable box */
+.instructions {
+    position: relative;
+    margin-top: 0;
+    color: white;
+    font-size: 18px;
+    max-height: 350px;  /* Sedikit lebih tinggi agar lebih nyaman dibaca */
+    overflow-y: auto;
+    padding: 15px;
+    width: 35%;
+    background: rgba(0, 0, 0, 0.7); /* Transparansi untuk efek modern */
+    border-radius: 15px;  /* Lebih melengkung untuk tampilan modern */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Efek bayangan yang lebih lembut */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Animasi saat hover */
+    float: left; /* Memindahkan instructions ke kiri */
+}
+
+/* Hover effect untuk efek interaktif */
+.instructions:hover {
+    transform: translateY(-5px); /* Sedikit naik saat di-hover */
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.3); /* Efek glow */
+}
+
+/* Title styling */
+.instructions h2 {
+    margin-bottom: 15px;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: center;
+    background: linear-gradient(90deg, #ff8a00, #e52e71); /* Efek gradasi keren */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Paragraph text styling */
+.instructions p {
+    line-height: 1.8;
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Custom scrollbar styling */
+.instructions::-webkit-scrollbar {
+    width: 8px;
+}
+
+.instructions::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.instructions::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ff8a00, #e52e71);
+    border-radius: 10px;
+}
+
+.instructions::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #e52e71, #ff8a00);
+}
+/* Game container styles - Sleek, modern design */
 .game-container {
     position: relative;
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 5px;
+    width: 60%;
+    border-radius: 25px; /* Lebih bulat untuk tampilan modern */
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6); /* Efek shadow lebih dalam */
+    background: linear-gradient(145deg, #232323, #3a3a3a); /* Gradient lebih halus */
+    border: 3px solid #444; /* Border lebih tajam untuk kontras */
+    margin-left: auto;
+    margin-right: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+/* Hover effect untuk game container */
+.game-container:hover {
+    transform: scale(1.02); /* Sedikit zoom saat hover untuk efek dinamis */
+    box-shadow: 0 18px 35px rgba(255, 255, 255, 0.2); /* Efek glow */
+}
+
+/* Styling untuk canvas dalam game */
 canvas {
-    background-color: black;
-    border: 2px solid white;
+    background: #1b1b1b;
+    border: 2px solid #ffffff;
+    border-radius: 12px;
     width: 100%;
-    height: auto;
+    transition: background 0.3s ease-in-out;
 }
 
+/* Efek interaktif saat canvas aktif */
+canvas:active {
+    background: #292929;
+    border-color: #ff8a00; /* Highlight border saat dimainkan */
+}
+
+/* HUD (Heads-Up Display) - Modern Floating Effect */
 .hud {
     position: absolute;
-    top: 10px;
+    top: 15px;
     left: 50%;
     transform: translateX(-50%);
-    color: white;
-    font-size: 18px;
+    color: #f3f3f3;
+    font-size: 20px;
+    font-weight: bold;
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 12px 25px;
+    background: rgba(0, 0, 0, 0.7); /* Lebih transparan */
+    border-radius: 25px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px); /* Efek blur untuk kesan futuristic */
+    transition: all 0.3s ease-in-out;
 }
 
-.instructions {
-    margin-top: 20px;
-    color: white;
-    font-size: 18px;
+/* Efek hover HUD untuk efek interaktif */
+.hud:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-50%) scale(1.05);
 }
 
-.instructions h2 {
-    margin-bottom: 10px;
-    font-size: 24px;
-    text-decoration: underline;
+/* Tambahkan efek glow pada teks di HUD */
+.hud span {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
 }
 
-/* Mobile-friendly buttons for touch controls */
-.touch-controls {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 20px;
-}
-
-.touch-button {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
+/* Responsiveness untuk layar kecil */
+@media (max-width: 768px) {
+    .game-container {
+        width: 90%;
+        margin-right: auto;
+    }
+    
+    .hud {
+        font-size: 18px;
+        padding: 8px 15px;
+        gap: 20px;
+    }
 }
