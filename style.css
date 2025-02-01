@@ -1,0 +1,80 @@
+body {
+    text-align: center;
+    background-image: url('bg.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.intro-text {
+    margin-top: 50px;
+    color: white;
+    font-size: 24px;
+}
+
+.intro-text h1 {
+    font-size: 36px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.intro-text h2 {
+    font-size: 28px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.game-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+canvas {
+    background-color: black;
+    border: 2px solid white;
+    width: 100%;
+    height: auto;
+}
+
+.hud {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 18px;
+    display: flex;
+    gap: 20px;
+}
+
+.instructions {
+    margin-top: 20px;
+    color: white;
+    font-size: 18px;
+}
+
+.instructions h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+/* Mobile-friendly buttons for touch controls */
+.touch-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+}
+
+.touch-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
