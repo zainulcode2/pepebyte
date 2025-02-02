@@ -21,8 +21,8 @@ const ai = {
     width: 70,
     height: 70,
     speed: 2,
-    hp: 20000,
-    maxHp: 20000,
+    hp: 300,
+    maxHp: 300,
     img: new Image()
 };
 ai.img.src = "assets/pepeking.png";
