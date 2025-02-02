@@ -13,7 +13,7 @@ const player = {
     hp: 100,
     img: new Image()
 };
-player.img.src = "assets/pepe.png";
+player.img.src = "assets/pepeuser.png";
 
 const ai = {
     x: 700,
@@ -25,7 +25,7 @@ const ai = {
     maxHp: 20000,
     img: new Image()
 };
-ai.img.src = "assets/pipe.png";
+ai.img.src = "assets/pepeking.png";
 
 const bullets = [];
 const aiBullets = [];
